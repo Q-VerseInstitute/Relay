@@ -9,6 +9,7 @@ import itertools
 load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
+PREFIX = os.getenv("PREFIX")
 
 intents = discord.Intents.all()
 intents.message_content = True
@@ -18,7 +19,7 @@ class QVIBot(commands.Bot):
         await self.load_extension("cogs.messages")
         await self.tree.sync()
 
-bot = QVIBot(command_prefix=commands.when_mentioned_or("$"), intents=intents)
+bot = QVIBot(command_prefix=commands.when_mentioned_or(PREFIX), intents=intents)
 @bot.event
 async def on_ready() -> None:
     print(f'Logged in as {bot.user}')

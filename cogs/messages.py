@@ -1,7 +1,7 @@
 import discord
 from discord import app_commands
 from discord.ext import commands
-from config import load_config, save_config
+from utils.config import load_config, save_config
 
 config = load_config()
 ALLOWED_POST_ROLES = config["allowed_post_roles"]
